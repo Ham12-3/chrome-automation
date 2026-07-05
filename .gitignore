@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.output/
+.env
+.env.local
+*.log
+.DS_Store
+.turbo/
+.wxt/
+.claude/
+logs/
+*.pid
+*-run-*.txt
+*-test-*.txt

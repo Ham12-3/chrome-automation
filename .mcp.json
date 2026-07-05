@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "chrome-automation": {
+      "command": "npx",
+      "args": ["tsx", "packages/server/src/index.ts"],
+      "cwd": "."
+    }
+  }
+}

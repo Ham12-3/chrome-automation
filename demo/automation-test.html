@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Browser Automation Demo</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 760px;
+        margin: 40px auto;
+        padding: 0 20px;
+        line-height: 1.5;
+      }
+      label,
+      button,
+      select,
+      input,
+      textarea {
+        display: block;
+        margin-top: 12px;
+      }
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+        padding: 8px 10px;
+      }
+      #result {
+        margin-top: 20px;
+        padding: 12px;
+        border: 1px solid #bbb;
+        min-height: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Browser Automation Demo</h1>
+    <p>This local page is for validating extension-based MCP automation.</p>
+
+    <label for="name-input">Name</label>
+    <input id="name-input" name="name" placeholder="Type a name" />
+
+    <label for="message-input">Message</label>
+    <textarea id="message-input" name="message" placeholder="Type a message"></textarea>
+
+    <label for="choice-select">Choice</label>
+    <select id="choice-select" name="choice">
+      <option value="">Choose one</option>
+      <option value="alpha">Alpha</option>
+      <option value="beta">Beta</option>
+    </select>
+
+    <label for="file-input">Upload test file</label>
+    <input id="file-input" name="file" type="file" />
+
+    <button id="submit-button" type="button">Save demo form</button>
+    <button id="delayed-button" type="button">Show delayed text</button>
+
+    <div id="result" role="status" aria-live="polite">Waiting for automation.</div>
+
+    <script>
+      const result = document.querySelector('#result');
+      document.querySelector('#submit-button').addEventListener('click', () => {
+        const name = document.querySelector('#name-input').value;
+        const message = document.querySelector('#message-input').value;
+        const choice = document.querySelector('#choice-select').value;
+        const file = document.querySelector('#file-input').files[0]?.name || 'no file';
+        result.textContent = `Saved ${name}: ${message} (${choice || 'no choice'}, ${file})`;
+      });
+
+      document.querySelector('#delayed-button').addEventListener('click', () => {
+        result.textContent = 'Waiting for delayed text...';
+        setTimeout(() => {
+          result.textContent = 'Delayed text is ready';
+        }, 800);
+      });
+    </script>
+  </body>
+</html>

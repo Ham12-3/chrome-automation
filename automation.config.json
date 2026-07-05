@@ -1,0 +1,18 @@
+{
+  "host": "127.0.0.1",
+  "wsPort": 7890,
+  "httpPort": 3456,
+  "allowedOrigins": [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173"
+  ],
+  "authToken": "chrome-automation-token-change-me",
+  "jwtSecret": "change-me-to-a-random-secret",
+  "remotePassword": "admin",
+  "enableRemoteControl": true,
+  "enableMcpStdio": true,
+  "enableComputerUse": false,
+  "enableDangerousEval": false,
+  "requireRiskConfirmation": true,
+  "auditLogPath": "logs/audit.jsonl"
+}
